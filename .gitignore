@@ -1,0 +1,13 @@
+# Ignore directories in subfolders
+**/node_modules/
+**/target/
+**/.mvn/
+**/dist/
+**/.idea/
+**/.vscode/
+**/*.class
+**/*.jar
+**/tmp/
+**/temp/
+.DS_Store
+Thumbs.db
