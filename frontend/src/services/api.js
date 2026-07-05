@@ -1,4 +1,5 @@
-const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8081';
+const BASE_URL = import.meta.env.VITE_API_URL || 
+  (window.location.port === '5174' ? 'http://localhost:8081' : '');
 
 async function request(endpoint, options = {}) {
   const url = `${BASE_URL}${endpoint}`;

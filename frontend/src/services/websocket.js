@@ -2,7 +2,19 @@ import { Client } from '@stomp/stompjs';
 
 let stompClient = null;
 
-const WS_URL = import.meta.env.VITE_WS_URL || 'ws://localhost:8081/ws';
+const getWsUrl = () => {
+  if (import.meta.env.VITE_WS_URL) {
+    return import.meta.env.VITE_WS_URL;
+  }
+  const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+  const host = window.location.host;
+  if (window.location.port === '5174') {
+    return 'ws://localhost:8081/ws';
+  }
+  return `${protocol}//${host}/ws`;
+};
+
+const WS_URL = getWsUrl();
 
 export function connectWebSocket(onMessage) {
   if (stompClient && stompClient.connected) {
