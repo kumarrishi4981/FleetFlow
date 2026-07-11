@@ -1,13 +1,16 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
-import Dashboard from './pages/Dashboard';
-import FleetMap from './pages/FleetMap';
-import Vehicles from './pages/Vehicles';
-import VehicleDetail from './pages/VehicleDetail';
-import Orders from './pages/Orders';
-import RouteOptimizer from './pages/RouteOptimizer';
-import Dispatch from './pages/Dispatch';
+
+// Pages - lazy load for optimal bundle size
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+const FleetMap = lazy(() => import('./pages/FleetMap'));
+const Vehicles = lazy(() => import('./pages/Vehicles'));
+const VehicleDetail = lazy(() => import('./pages/VehicleDetail'));
+const Orders = lazy(() => import('./pages/Orders'));
+const RouteOptimizer = lazy(() => import('./pages/RouteOptimizer'));
+const Dispatch = lazy(() => import('./pages/Dispatch'));
+
 import { Menu, Sun, Moon } from 'lucide-react';
 import Logo from './components/Logo';
 import { ThemeContext } from './context/ThemeContext';
@@ -45,15 +48,22 @@ function App() {
         onClose={() => setMobileMenuOpen(false)}
       />
       <main className="main-content">
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/map" element={<FleetMap />} />
-          <Route path="/vehicles" element={<Vehicles />} />
-          <Route path="/vehicles/:id" element={<VehicleDetail />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/routes" element={<RouteOptimizer />} />
-          <Route path="/dispatch" element={<Dispatch />} />
-        </Routes>
+        <Suspense fallback={
+          <div className="loading-overlay">
+            <div className="spinner" />
+            <p>Loading module...</p>
+          </div>
+        }>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/map" element={<FleetMap />} />
+            <Route path="/vehicles" element={<Vehicles />} />
+            <Route path="/vehicles/:id" element={<VehicleDetail />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/routes" element={<RouteOptimizer />} />
+            <Route path="/dispatch" element={<Dispatch />} />
+          </Routes>
+        </Suspense>
       </main>
     </div>
   );
