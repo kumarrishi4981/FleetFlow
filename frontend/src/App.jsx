@@ -1,6 +1,7 @@
 import { useState, useContext, lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
+import ServerStatusBanner from './components/ServerStatusBanner';
 
 // Pages - lazy load for optimal bundle size
 const Dashboard = lazy(() => import('./pages/Dashboard'));
@@ -22,6 +23,9 @@ function App() {
 
   return (
     <div className={`app-layout ${sidebarCollapsed ? 'sidebar-collapsed' : ''}`}>
+      {/* Cold Start Server Status Banner */}
+      <ServerStatusBanner />
+
       {/* Mobile Header */}
       <header className="mobile-header">
         <button className="mobile-menu-btn" onClick={() => setMobileMenuOpen(true)}>
@@ -70,4 +74,3 @@ function App() {
 }
 
 export default App;
-
