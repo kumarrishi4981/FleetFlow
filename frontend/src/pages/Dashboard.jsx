@@ -87,8 +87,8 @@ export default function Dashboard() {
   const greeting = getGreeting();
 
   const tileUrl = theme === 'light'
-    ? 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
-    : 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
+    ? 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+    : 'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png';
 
   return (
     <div className="page-enter ff-dashboard">
@@ -170,7 +170,7 @@ export default function Dashboard() {
           <div className="ff-map-container">
             <MapContainer center={mapCenter} zoom={mapZoom} zoomControl={true} style={{ width:'100%', height:'100%' }}>
               <ChangeView center={mapCenter} zoom={mapZoom} />
-              <TileLayer url={tileUrl} attribution='&copy; CARTO' />
+              <TileLayer url={tileUrl} attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | <a href="https://stadiamaps.com/">Stadia Maps</a>' />
               {vehicles.map(v => <VehicleMarker key={v.id} vehicle={v} onClick={() => focusVehicle(v)} />)}
             </MapContainer>
           </div>
