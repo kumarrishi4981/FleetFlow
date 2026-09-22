@@ -1,0 +1,1 @@
+import{p as e}from"./index-CADkXRyL.js";import{a as t,c as n,o as r,s as i}from"./TileLayer-B_IrTYBW.js";var a=e(i(),1),o=t(function({positions:e,...t},i){let o=new a.Polyline(e,t);return r(o,n(i,{overlayContainer:o}))},function(e,t,n){t.positions!==n.positions&&e.setLatLngs(t.positions)});export{o as t};
