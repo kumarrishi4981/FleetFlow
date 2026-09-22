@@ -700,6 +700,13 @@ body {
 /* ===== LEAFLET MAP DARK STYLES ===== */
 .leaflet-container {
   font-family: inherit !important;
+  background: var(--bg-primary) !important;
+}
+
+/* Dark mode filter applied ONLY to map tiles, preserving markers, routes, and popups */
+html[data-theme="dark"] .leaflet-tile-pane,
+:root:not([data-theme="light"]) .leaflet-tile-pane {
+  filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
 }
 
 /* Pulsing Custom Icon for Vehicle Marker */

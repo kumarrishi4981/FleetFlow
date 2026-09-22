@@ -1,0 +1,1 @@
+import{E as e,w as t}from"./index-PsWkeegS.js";import{l as n}from"./TileLayer-BS3IfMlp.js";var r=e(t(),1);function i(){return n().map}function a(e){let t=i();return(0,r.useEffect)(function(){return t.on(e),function(){t.off(e)}},[t,e]),t}export{a as n,i as t};

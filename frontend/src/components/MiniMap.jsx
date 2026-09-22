@@ -9,10 +9,7 @@ const statusColors = {
 };
 
 export default function MiniMap({ vehicles = [] }) {
-  const { theme } = useContext(ThemeContext);
-  const tileUrl = theme === 'light'
-    ? 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-    : 'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png';
+  const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 
   return (
     <div className="map-container map-container--mini">
@@ -29,7 +26,7 @@ export default function MiniMap({ vehicles = [] }) {
       >
         <TileLayer
           url={tileUrl}
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | <a href="https://stadiamaps.com/">Stadia Maps</a>'
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         {vehicles.map((v) => {
           const lat = v.latitude !== undefined ? v.latitude : v.currentLat;
