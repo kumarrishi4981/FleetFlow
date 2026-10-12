@@ -16,6 +16,10 @@
 
 ---
 
+![FleetFlow Real-Time Dashboard](fleetflow_preview.png)
+
+---
+
 ## 📌 Overview
 
 **FleetFlow** is a comprehensive logistics execution and dispatcher console designed to solve the complexities of modern transport networks. It unifies vehicle telematics, intelligent automated order dispatch, and dynamic route visualization into a single responsive interface.
