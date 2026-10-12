@@ -14,11 +14,7 @@
 ### 🌐 Live Application
 👉 **Experience the live dashboard:** [https://fleetflow-fh0s.onrender.com/](https://fleetflow-fh0s.onrender.com/)
 
----
-
-![FleetFlow Hero](frontend/src/assets/hero.png)
-
----
+![FleetFlow Dashboard Preview](fleetflow_preview.png)
 
 ## 📌 Overview
 
